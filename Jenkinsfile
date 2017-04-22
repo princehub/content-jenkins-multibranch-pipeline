@@ -23,5 +23,22 @@ pipeline {
         sh 'java -jar rectangle.jar 7 9'
       }
     }
+    stage('PromoteDevelopmenttoMaster'){
+      when{
+        branch'development'
+      }steps{
+        echo 'Stashing Local Changes'
+        sh 'git stash'
+        echo 'Checking Out Development'
+        sh 'git checkout development'
+        sh 'git pull origin'
+        echo 'Checking Out Master'
+        sh 'git checkout master'
+        echo 'Merging Development into Master'
+        sh 'git merge development'
+        echo 'Git Push to Origin'
+        sh 'git push origin master'
+      }
+    }
   }
 }
