@@ -2,7 +2,7 @@ pipeline{
   agentanystages{
     stage('build'){
       steps{
-        sh'javac-d.src/*.java'sh'echoMain-Class: Rectangulator>MANIFEST.MF'sh'jar-cvmfMANIFEST.MFrectangle.jar*.class'
+        sh 'javac-d.src/*.java'sh'echoMain-Class: Rectangulator>MANIFEST.MF'sh'jar-cvmfMANIFEST.MFrectangle.jar*.class'
       }post{
         success{
           archiveArtifactsartifacts: 'rectangle.jar',
