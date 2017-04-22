@@ -23,10 +23,11 @@ pipeline {
         sh 'java -jar rectangle.jar 7 9'
       }
     }
-    stage('PromoteDevelopmenttoMaster'){
-      when{
+    stage('PromoteDevelopmenttoMaster') {
+      when {
         branch'development'
-      }steps{
+      }
+      steps {
         echo 'Stashing Local Changes'
         sh 'git stash'
         echo 'Checking Out Development'
